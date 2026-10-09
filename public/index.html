@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartBite - Food Ordering</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= TOP OFFER BAR ================= -->
+
+<div class="top-bar">
+    <p>🔥 Flat 20% OFF on your first order</p>
+    <button onclick="scrollToMenu()">Order Now</button>
+</div>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">🍽️</span>
+        <span class="logo-smart">Smart</span>Bite
+    </div>
+
+    <div class="location">
+        <span>📍</span>
+        <div>
+            <small>Deliver to</small>
+            <strong>Coimbatore</strong>
+        </div>
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="#home">Home</a>
+        <a href="#restaurants">Restaurants</a>
+        <a href="#menu">Menu</a>
+        <a href="#offers">Offers</a>
+        <a href="#finder">Smart Finder</a>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒
+            <span>Cart</span>
+            <b class="cart-count">0</b>
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            ⭐ #1 Food Ordering Experience
+        </span>
+
+        <h1>
+            Good Food.<br>
+            <span>Good Mood.</span>
+        </h1>
+
+        <p>
+            Discover delicious food from your favourite restaurants
+            and get it delivered hot and fresh to your doorstep.
+        </p>
+
+        <!-- SEARCH -->
+
+        <div class="hero-search">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for biryani, pizza, burger..."
+                onkeyup="searchFood()"
+            >
+
+            <button onclick="searchFood()">
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn" onclick="scrollToMenu()">
+                🍴 Order Food
+            </button>
+
+            <button class="secondary-btn" onclick="scrollToFinder()">
+                ✨ Smart Finder
+            </button>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>50+</strong>
+                <span>Food Items</span>
+            </div>
+
+            <div>
+                <strong>20+</strong>
+                <span>Restaurants</span>
+            </div>
+
+            <div>
+                <strong>4.8 ⭐</strong>
+                <span>Average Rating</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="hero-image-card">
+
+            <img
+                src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe.jpg"
+                alt="Delicious Biryani"
+            >
+
+        </div>
+
+        <div class="floating-rating">
+            ⭐ 4.8
+            <small>Top Rated</small>
+        </div>
+
+        <div class="floating-delivery">
+            🚴
+            <div>
+                <strong>Fast Delivery</strong>
+                <small>25-35 mins</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK CATEGORIES ================= -->
+
+<section class="categories-section">
+
+    <div class="section-header">
+
+        <div>
+            <span class="section-label">EXPLORE</span>
+
+            <h2>
+                What are you <span>craving?</span>
+            </h2>
+        </div>
+
+        <button class="view-all-btn" onclick="showAllMenu()">
+            View All →
+        </button>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <button class="category-card active" onclick="filterCategory('All')">
+            <div class="category-icon">🍽️</div>
+            <strong>All</strong>
+            <span>50+ items</span>
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('Indian')">
+            <div class="category-icon">🍛</div>
+            <strong>Indian</strong>
+            <span>12 items</span>
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('Pizza')">
+            <div class="category-icon">🍕</div>
+            <strong>Pizza</strong>
+            <span>8 items</span>
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('Burger')">
+            <div class="category-icon">🍔</div>
+            <strong>Burgers</strong>
+            <span>8 items</span>
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('Chinese')">
+            <div class="category-icon">🍜</div>
+            <strong>Chinese</strong>
+            <span>7 items</span>
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('Drinks')">
+            <div class="category-icon">🥤</div>
+            <strong>Drinks</strong>
+            <span>6 items</span>
+        </button>
+
+
+        <button class="category-card" onclick="filterCategory('Dessert')">
+            <div class="category-icon">🍰</div>
+            <strong>Desserts</strong>
+            <span>9 items</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OFFERS ================= -->
+
+<section class="offers-section" id="offers">
+
+    <div class="section-header">
+
+        <div>
+            <span class="section-label">DEALS FOR YOU</span>
+
+            <h2>
+                Grab the <span>best offers</span>
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="offers-grid">
+
+
+        <!-- OFFER 1 -->
+
+        <div class="offer-card offer-orange">
+
+            <div class="offer-content">
+
+                <span class="offer-small">
+                    WELCOME OFFER
+                </span>
+
+                <h3>
+                    Get 20% OFF
+                </h3>
+
+                <p>
+                    Enjoy your first meal with SmartBite
+                    at a special discounted price.
+                </p>
+
+                <button onclick="applyOffer('FIRST20')">
+                    Order Now →
+                </button>
+
+            </div>
+
+            <div class="offer-emoji">
+                🍔
+            </div>
+
+        </div>
+
+
+        <!-- OFFER 2 -->
+
+        <div class="offer-card offer-dark">
+
+            <div class="offer-content">
+
+                <span class="offer-small">
+                    DELIVERY OFFER
+                </span>
+
+                <h3>
+                    Free Delivery
+                </h3>
+
+                <p>
+                    Get free delivery on selected restaurants
+                    and orders above ₹299.
+                </p>
+
+                <button onclick="applyOffer('FREEDELIVERY')">
+                    Explore →
+                </button>
+
+            </div>
+
+            <div class="offer-emoji">
+                🚴
+            </div>
+
+        </div>
+
+
+        <!-- OFFER 3 -->
+
+        <div class="offer-card offer-green">
+
+            <div class="offer-content">
+
+                <span class="offer-small">
+                    WEEKEND SPECIAL
+                </span>
+
+                <h3>
+                    ₹100 OFF
+                </h3>
+
+                <p>
+                    Weekend cravings deserve a special
+                    discount.
+                </p>
+
+                <button onclick="applyOffer('WEEKEND100')">
+                    Get Deal →
+                </button>
+
+            </div>
+
+            <div class="offer-emoji">
+                🎁
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RESTAURANTS ================= -->
+
+<section class="restaurants-section" id="restaurants">
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                TOP RESTAURANTS
+            </span>
+
+            <h2>
+                Popular near <span>you</span>
+            </h2>
+
+        </div>
+
+        <button class="view-all-btn" onclick="scrollToMenu()">
+            Explore Menu →
+        </button>
+
+    </div>
+
+
+    <div class="restaurant-grid">
+
+
+        <div class="restaurant-card">
+
+            <img
+                src="https://th.bing.com/th/id/OIP.ksCDA2tmKnDkE16YS_5HZwHaGB?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Pizza restaurant"
+            >
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>Urban Pizza</h3>
+
+                    <span>4.7 ⭐</span>
+
+                </div>
+
+                <p>Pizza • Italian • Fast Food</p>
+
+                <div class="restaurant-meta">
+                    <span>🚴 25-30 min</span>
+                    <span>₹200 for one</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="restaurant-card">
+
+            <img
+                src="https://tse1.mm.bing.net/th/id/OIP.nBjdVDkQcgmGValxZuiBFAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Indian restaurant"
+            >
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>South Spice</h3>
+
+                    <span>4.8 ⭐</span>
+
+                </div>
+
+                <p>South Indian • Biryani • Meals</p>
+
+                <div class="restaurant-meta">
+                    <span>🚴 20-25 min</span>
+                    <span>₹180 for one</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="restaurant-card">
+
+            <img
+                src="https://tse2.mm.bing.net/th/id/OIP.J5noGFHerZ3luV6U8dBQZwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Burger restaurant"
+            >
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>Burger Hub</h3>
+
+                    <span>4.6 ⭐</span>
+
+                </div>
+
+                <p>Burgers • Fries • Beverages</p>
+
+                <div class="restaurant-meta">
+                    <span>🚴 15-20 min</span>
+                    <span>₹150 for one</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="restaurant-card">
+
+            <img
+                src="https://tse4.mm.bing.net/th/id/OIP.ifWRKB-ohnBM2eNj0dZh6QHaEO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Restaurant"
+            >
+
+            <div class="restaurant-info">
+
+                <div class="restaurant-title">
+
+                    <h3>Food Street</h3>
+
+                    <span>4.5 ⭐</span>
+
+                </div>
+
+                <p>Chinese • Indian • Desserts</p>
+
+                <div class="restaurant-meta">
+                    <span>🚴 25-35 min</span>
+                    <span>₹220 for one</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MENU ================= -->
+
+<section class="menu-section" id="menu">
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-label">
+                OUR MENU
+            </span>
+
+            <h2>
+                Delicious food, <span>made for you</span>
+            </h2>
+
+            <p class="section-description">
+                Choose from our hand-picked collection of
+                popular dishes.
+            </p>
+
+        </div>
+
+        <button
+            class="view-all-btn"
+            id="menuToggleBtn"
+            onclick="showAllMenu()"
+        >
+            View Full Menu →
+        </button>
+
+    </div>
+
+
+    <!-- MENU FILTER BAR -->
+
+    <div class="menu-toolbar">
+
+        <div class="menu-result">
+            <strong id="menuResultCount">15</strong>
+            <span>items available</span>
+        </div>
+
+
+        <select id="sortMenu" onchange="sortMenu()">
+
+            <option value="default">
+                Sort: Recommended
+            </option>
+
+            <option value="priceLow">
+                Price: Low to High
+            </option>
+
+            <option value="priceHigh">
+                Price: High to Low
+            </option>
+
+            <option value="rating">
+                Top Rated
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- FOOD GRID -->
+
+    <div class="food-grid" id="foodGrid">
+
+        <!-- JavaScript will load food cards here -->
+
+    </div>
+
+
+    <div class="no-food" id="noFood">
+
+        <div>🍽️</div>
+
+        <h3>
+            No food found
+        </h3>
+
+        <p>
+            Try another search or category.
+        </p>
+
+        <button onclick="filterCategory('All')">
+            Show All Food
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SMART FINDER ================= -->
+
+<section class="finder-section" id="finder">
+
+    <div class="finder-header">
+
+        <span class="section-label">
+            SMART TECHNOLOGY
+        </span>
+
+        <h2>
+            Not sure what to eat?
+        </h2>
+
+        <p>
+            Tell us what you like and SmartBite will
+            find the perfect food for you.
+        </p>
+
+    </div>
+
+
+    <div class="finder-box">
+
+
+        <div class="finder-field">
+
+            <label>💰 Budget</label>
+
+            <select id="budgetFilter">
+
+                <option value="any">
+                    Any Budget
+                </option>
+
+                <option value="150">
+                    Under ₹150
+                </option>
+
+                <option value="200">
+                    Under ₹200
+                </option>
+
+                <option value="250">
+                    Under ₹250
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="finder-field">
+
+            <label>🥗 Food Type</label>
+
+            <select id="typeFilter">
+
+                <option value="any">
+                    Any Type
+                </option>
+
+                <option value="veg">
+                    Vegetarian
+                </option>
+
+                <option value="nonveg">
+                    Non-Vegetarian
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="finder-field">
+
+            <label>🌶️ Spice Level</label>
+
+            <select id="spiceFilter">
+
+                <option value="any">
+                    Any Spice
+                </option>
+
+                <option value="mild">
+                    Mild
+                </option>
+
+                <option value="medium">
+                    Medium
+                </option>
+
+                <option value="spicy">
+                    Spicy
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="finder-field">
+
+            <label>⏱️ Delivery Time</label>
+
+            <select id="timeFilter">
+
+                <option value="any">
+                    Any Time
+                </option>
+
+                <option value="15">
+                    Under 15 min
+                </option>
+
+                <option value="20">
+                    Under 20 min
+                </option>
+
+                <option value="30">
+                    Under 30 min
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="finder-button"
+            onclick="smartFinder()"
+        >
+            ✨ Find My Food
+        </button>
+
+    </div>
+
+
+    <div id="finderResult" class="finder-result"></div>
+
+</section>
+
+
+<!-- ================= WHY SMARTBITE ================= -->
+
+<section class="why-section">
+
+    <div class="section-header centered">
+
+        <div>
+
+            <span class="section-label">
+                WHY SMARTBITE
+            </span>
+
+            <h2>
+                More than just <span>food delivery</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🚀
+            </div>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Get your favourite food delivered
+                hot and fresh in no time.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                ⭐
+            </div>
+
+            <h3>
+                Top Rated Food
+            </h3>
+
+            <p>
+                Discover dishes loved and highly
+                rated by other customers.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                💰
+            </div>
+
+            <h3>
+                Best Prices
+            </h3>
+
+            <p>
+                Enjoy exclusive offers and
+                affordable food every day.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Safe & Reliable
+            </h3>
+
+            <p>
+                Simple ordering with a secure
+                and reliable experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <div class="logo footer-logo">
+                <span class="logo-icon">🍽️</span>
+                <span class="logo-smart">Smart</span>Bite
+            </div>
+
+            <p>
+                Your smart food ordering experience.
+                Discover, order and enjoy.
+            </p>
+
+            <div class="social-icons">
+                <span>📘</span>
+                <span>📸</span>
+                <span>🐦</span>
+            </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>SmartBite</h4>
+
+            <a href="#home">Home</a>
+            <a href="#restaurants">Restaurants</a>
+            <a href="#menu">Menu</a>
+            <a href="#offers">Offers</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Help</h4>
+
+            <a href="#">Support</a>
+            <a href="#">Track Order</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Contact</h4>
+
+            <p>📍 Coimbatore, Tamil Nadu</p>
+            <p>📞 +91 93441 21270</p>
+            <p>✉️ support@smartbite.com</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 SmartBite. All rights reserved.
+        </p>
+
+        <p>
+            Made with ❤️ for food lovers
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= CART DRAWER ================= -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="cart-header">
+
+        <div>
+
+            <span class="cart-title-icon">
+                🛒
+            </span>
+
+            <div>
+                <h2>Your Cart</h2>
+                <p>
+                    <span id="cartItemCount">0</span> items
+                </p>
+            </div>
+
+        </div>
+
+
+        <button
+            class="close-cart"
+            onclick="closeCart()"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div class="cart-items" id="cartItems">
+
+        <div class="empty-cart">
+
+            <div class="empty-cart-icon">
+                🛒
+            </div>
+
+            <h3>
+                Your cart is empty
+            </h3>
+
+            <p>
+                Add some delicious food to get started.
+            </p>
+
+            <button onclick="closeCart(); scrollToMenu()">
+                Browse Food
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer" id="cartFooter">
+
+        <div class="coupon-box">
+
+            <input
+                type="text"
+                id="couponInput"
+                placeholder="Enter coupon code"
+            >
+
+            <button onclick="applyCoupon()">
+                Apply
+            </button>
+
+        </div>
+
+
+        <div class="price-row">
+
+            <span>Subtotal</span>
+
+            <strong>
+                ₹<span id="cartSubtotal">0</span>
+            </strong>
+
+        </div>
+
+
+        <div class="price-row">
+
+            <span>Delivery Fee</span>
+
+            <strong>
+                ₹<span id="deliveryFee">40</span>
+            </strong>
+
+        </div>
+
+
+        <div class="price-row discount-row">
+
+            <span>Discount</span>
+
+            <strong>
+                -₹<span id="discountAmount">0</span>
+            </strong>
+
+        </div>
+
+
+        <div class="cart-total-row">
+
+            <span>Total</span>
+
+            <strong>
+                ₹<span id="cartTotal">0</span>
+            </strong>
+
+        </div>
+
+
+        <button
+            class="checkout-btn"
+            onclick="checkout()"
+        >
+            Proceed to Checkout
+            <span>→</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div class="checkout-overlay" id="checkoutOverlay">
+
+    <div class="checkout-modal">
+
+
+        <div class="checkout-header">
+
+            <div>
+
+                <span class="section-label">
+                    SMARTBITE CHECKOUT
+                </span>
+
+                <h2>
+                    Complete Your Order
+                </h2>
+
+            </div>
+
+            <button onclick="closeCheckout()">
+                ✕
+            </button>
+
+        </div>
+
+
+        <div class="checkout-body">
+
+
+            <!-- DELIVERY DETAILS -->
+
+            <div class="checkout-section">
+
+                <h3>
+                    📍 Delivery Details
+                </h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="Enter your name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            placeholder="Enter phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Delivery Address
+                        </label>
+
+                        <textarea
+                            id="customerAddress"
+                            placeholder="House no, street, area..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="checkout-section">
+
+                <h3>
+                    💳 Payment Method
+                </h3>
+
+
+                <div class="payment-options">
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="upi"
+                            checked
+                        >
+
+                        <div>
+                            <span>📱</span>
+
+                            <strong>
+                                UPI
+                            </strong>
+
+                            <small>
+                                Google Pay / PhonePe / Paytm
+                            </small>
+                        </div>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="card"
+                        >
+
+                        <div>
+                            <span>💳</span>
+
+                            <strong>
+                                Card
+                            </strong>
+
+                            <small>
+                                Credit / Debit Card
+                            </small>
+                        </div>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="cod"
+                        >
+
+                        <div>
+                            <span>💵</span>
+
+                            <strong>
+                                Cash on Delivery
+                            </strong>
+
+                            <small>
+                                Pay when food arrives
+                            </small>
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <div class="checkout-summary">
+
+                <h3>
+                    🧾 Order Summary
+                </h3>
+
+                <div id="checkoutItems"></div>
+
+
+                <div class="checkout-total">
+
+                    <span>
+                        Total Amount
+                    </span>
+
+                    <strong>
+                        ₹<span id="checkoutTotal">0</span>
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="place-order-btn"
+                onclick="placeOrder()"
+            >
+                🔒 Pay & Place Order
+            </button>
+
+
+            <p class="demo-payment">
+                🔐 Demo payment interface — no real money will be charged.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ORDER SUCCESS ================= -->
+
+<div class="success-overlay" id="successOverlay">
+
+    <div class="success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <span class="section-label">
+            ORDER CONFIRMED
+        </span>
+
+        <h2>
+            Your order is on the way! 🎉
+        </h2>
+
+        <p>
+            Thank you for ordering with SmartBite.
+            Your delicious food will reach you soon.
+        </p>
+
+
+        <div class="order-number">
+
+            <span>
+                Order ID
+            </span>
+
+            <strong id="orderId">
+                SB-000000
+            </strong>
+
+        </div>
+
+
+        <div class="tracking-status">
+
+            <div class="track-step active">
+
+                <span>✓</span>
+
+                <div>
+                    <strong>
+                        Order Confirmed
+                    </strong>
+
+                    <small>
+                        Your order has been received
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="track-line"></div>
+
+
+            <div class="track-step">
+
+                <span>👨‍🍳</span>
+
+                <div>
+                    <strong>
+                        Preparing Food
+                    </strong>
+
+                    <small>
+                        Restaurant is preparing your order
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="track-line"></div>
+
+
+            <div class="track-step">
+
+                <span>🚴</span>
+
+                <div>
+                    <strong>
+                        Out for Delivery
+                    </strong>
+
+                    <small>
+                        Delivery partner will pick it up
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="track-line"></div>
+
+
+            <div class="track-step">
+
+                <span>🏠</span>
+
+                <div>
+                    <strong>
+                        Delivered
+                    </strong>
+
+                    <small>
+                        Enjoy your meal!
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="success-btn"
+            onclick="closeSuccess()"
+        >
+            Continue Browsing
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+
+    <span id="toastIcon">
+        ✓
+    </span>
+
+    <div>
+        <strong id="toastTitle">
+            Success
+        </strong>
+
+        <p id="toastMessage">
+            Item added to cart
+        </p>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
